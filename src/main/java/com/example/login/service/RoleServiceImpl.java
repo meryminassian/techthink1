@@ -1,7 +1,7 @@
 package com.example.login.service;
 
 import com.example.login.persistence.Role;
-import com.example.login.persistence.RoleRepository;
+import com.example.login.persistence.repository.RoleRepository;
 import org.springframework.stereotype.Service;
 
 @Service

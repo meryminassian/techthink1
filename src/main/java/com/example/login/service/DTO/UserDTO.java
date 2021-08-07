@@ -1,4 +1,4 @@
-package com.example.login.service;
+package com.example.login.service.DTO;
 
 import com.example.login.persistence.RoleName;
 

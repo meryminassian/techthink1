@@ -32,7 +32,6 @@ public class User {
     private List<Role> roles = new ArrayList<>();
 
     public User() {
-
     }
 
     public User(Long id, String first_name, String last_name, String username, String email, String password) {

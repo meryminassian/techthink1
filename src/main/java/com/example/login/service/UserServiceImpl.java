@@ -1,13 +1,11 @@
 package com.example.login.service;
 
 
-import com.example.login.persistence.Role;
-import com.example.login.persistence.RoleName;
 import com.example.login.persistence.User;
-import com.example.login.persistence.UserRepository;
+import com.example.login.persistence.repository.UserRepository;
+import com.example.login.service.DTO.UserDTO;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @Service
 public class UserServiceImpl implements UserService{
 
