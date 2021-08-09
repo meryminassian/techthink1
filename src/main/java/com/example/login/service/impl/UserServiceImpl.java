@@ -1,13 +1,15 @@
-package com.example.login.service;
+package com.example.login.service.impl;
 
 
 import com.example.login.persistence.User;
 import com.example.login.persistence.repository.UserRepository;
 import com.example.login.service.DTO.UserDTO;
+import com.example.login.service.RoleService;
+import com.example.login.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final RoleService roleService;

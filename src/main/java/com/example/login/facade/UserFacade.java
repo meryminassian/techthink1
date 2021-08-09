@@ -1,5 +1,6 @@
 package com.example.login.facade;
 
+import com.example.login.annotation.Facade;
 import com.example.login.controller.model.RegisterRequest;
 import com.example.login.controller.model.UserResponse;
 import com.example.login.converter.Converter;
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-@Component
+@Facade
 public class UserFacade {
     @Autowired
     UserService userService;

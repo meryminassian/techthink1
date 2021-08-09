@@ -1,15 +1,16 @@
 package com.example.login.converter;
 
-import com.example.login.controller.model.AddressResponse;
-import com.example.login.controller.model.UserResponse;
+import com.example.login.annotation.Convert;
+import com.example.login.controller.model.*;
 import com.example.login.persistence.Address;
+import com.example.login.persistence.Category;
+import com.example.login.persistence.SubCategory;
 import com.example.login.persistence.User;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+@Convert
 public class Converter {
     public UserResponse fromUserToResponse(User user){
         UserResponse userResponse = new UserResponse();
@@ -31,7 +32,37 @@ public class Converter {
     }
 
     public List<AddressResponse> fromAddressToResponseList(List<Address> addresses){
-        return addresses.stream().map(each -> fromAddressToResponse(each))
+        return addresses.stream()
+                .map(each -> fromAddressToResponse(each))
                 .collect(Collectors.toList());
     }
+
+    public CategoryResponse fromCategoryToResponse(Category category){
+        CategoryResponse categoryResponse = new CategoryResponse();
+        categoryResponse.setId(category.getId());
+        categoryResponse.setName(category.getName());
+        return categoryResponse;
+    }
+
+    public List<CategoryResponse> fromCategoryToResponseList(List<Category> categories){
+        return categories.stream()
+                .map(each -> fromCategoryToResponse(each))
+                .collect(Collectors.toList());
+    }
+
+    public SubCategoryResponse fromSubCategoryToResponse(SubCategory subCategory){
+        SubCategoryResponse subCategoryResponse = new SubCategoryResponse();
+        subCategoryResponse.setId(subCategory.getId());
+        subCategoryResponse.setName(subCategory.getName());
+        CategoryResponse categoryResponse = fromCategoryToResponse(subCategory.getCategory());
+        subCategoryResponse.setCategory(categoryResponse);
+        return subCategoryResponse;
+    }
+
+    public List<SubCategoryResponse> fromSubCategoryToResponseList(List<SubCategory> subCategories){
+        return subCategories.stream()
+                .map(each -> fromSubCategoryToResponse(each))
+                .collect(Collectors.toList());
+    }
+
 }
